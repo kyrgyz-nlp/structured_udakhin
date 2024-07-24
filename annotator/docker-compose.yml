@@ -11,15 +11,26 @@ services:
       - prodigy_db:/var/lib/postgresql/data/
 
   backend:
-    build: .
-    env_file:
-      - .env
+    build:
+      context: .
+      secrets:
+        - PRODIGY_KEY
+        - PRODIGY_BASIC_AUTH_USER
+        - PRODIGY_BASIC_AUTH_PASS
     ports:
       - "8080:8080"
     # volumes:
     #   - ./backend:/home/app/code
     depends_on:
       - db
+
+secrets:
+  PRODIGY_KEY:
+    file: ./secrets/PRODIGY_KEY
+  PRODIGY_BASIC_AUTH_USER:
+    file: ./secrets/PRODIGY_BASIC_AUTH_USER
+  PRODIGY_BASIC_AUTH_PASS:
+    file: ./secrets/PRODIGY_BASIC_AUTH_PASS
 
 networks:
   default:

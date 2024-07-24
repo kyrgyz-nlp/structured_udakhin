@@ -1,11 +1,7 @@
-# You may need to specify the --platform depending on cloud provider
 FROM python:3.9
 
 # Copy requirements first
 COPY requirements.txt .
-
-# Next, copy in the .env file, which contains the PRODIGY_KEY variable
-COPY .env .
 
 # Install everything
 RUN --mount=type=secret,id=PRODIGY_KEY \

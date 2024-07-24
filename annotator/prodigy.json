@@ -2,6 +2,8 @@
   "db": "postgresql",
   "host": "0.0.0.0",
   "port": 8080,
+  "html_template": "template.html",
+  "feed_overlap": false,
   "db_settings": {
     "postgresql": {
       "host": "localhost",
