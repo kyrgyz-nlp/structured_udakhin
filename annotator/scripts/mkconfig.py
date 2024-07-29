@@ -3,7 +3,8 @@ import os
 from dotenv import dotenv_values
 
 ENV = {
-    **dotenv_values(".env"),
+    # TODO: read env from env variables
+    **dotenv_values(".env.local"),
     **os.environ,
 }
 

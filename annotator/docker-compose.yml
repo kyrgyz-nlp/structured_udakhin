@@ -9,12 +9,26 @@ services:
   backend:
     build:
       context: .
+      dockerfile: Dockerfile
       secrets:
         - PRODIGY_KEY
         - PRODIGY_BASIC_AUTH_USER
         - PRODIGY_BASIC_AUTH_PASS
     ports:
       - "8080:8080"
+    depends_on:
+      - db
+
+  json_editing_backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.json_editing
+      secrets:
+        - PRODIGY_KEY
+        - PRODIGY_BASIC_AUTH_USER
+        - PRODIGY_BASIC_AUTH_PASS
+    ports:
+      - "8081:8080"
     depends_on:
       - db
 
