@@ -1,2 +1,3 @@
 docker-compose.yml
 fly.toml
+fly.json_editing.toml
