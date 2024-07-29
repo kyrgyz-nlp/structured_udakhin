@@ -1,10 +1,6 @@
 services:
   db:
     image: postgres:15-bookworm
-    environment:
-      POSTGRES_USER: prodigy_db_user
-      POSTGRES_PASSWORD: ThisIsProdiGyDBPoswort
-      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - 5432:5432
     volumes:
@@ -19,8 +15,6 @@ services:
         - PRODIGY_BASIC_AUTH_PASS
     ports:
       - "8080:8080"
-    # volumes:
-    #   - ./backend:/home/app/code
     depends_on:
       - db
 
