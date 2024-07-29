@@ -31,6 +31,6 @@ done < $ENV_FILE
 docker compose up -d
 
 # Remove the secrets folder
-# rm -rf secrets
+rm -rf secrets
 
 echo "Docker containers are up and secrets folder has been removed."
