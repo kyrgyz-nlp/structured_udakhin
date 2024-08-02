@@ -3,6 +3,15 @@ services:
     image: postgres:15-bookworm
     ports:
       - 5432:5432
+    environment:
+      - POSTGRES_USER_FILE=/run/secrets/POSTGRES_USER
+      - POSTGRES_PASSWORD_FILE=/run/secrets/POSTGRES_PASSWORD
+      - POSTGRES_DB_FILE=/run/secrets/POSTGRES_DB
+    secrets:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+
     volumes:
       - prodigy_db:/var/lib/postgresql/data/
 
@@ -39,6 +48,12 @@ secrets:
     file: ./secrets/PRODIGY_BASIC_AUTH_USER
   PRODIGY_BASIC_AUTH_PASS:
     file: ./secrets/PRODIGY_BASIC_AUTH_PASS
+  POSTGRES_USER:
+    file: ./secrets/POSTGRES_USER
+  POSTGRES_PASSWORD:
+    file: ./secrets/POSTGRES_PASSWORD
+  POSTGRES_DB:
+    file: ./secrets/POSTGRES_DB
 
 networks:
   default:

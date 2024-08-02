@@ -13,10 +13,10 @@ config = srsly.read_json("prodigy.json")
 
 # Ensure postgres variables in `prodigy.json`
 config["db_settings"]["postgresql"]["user"] = ENV['POSTGRES_USER']
-config["db_settings"]["postgresql"]["password"] = ENV['POSTGRES_PWD']
+config["db_settings"]["postgresql"]["password"] = ENV['POSTGRES_PASSWORD']
 config["db_settings"]["postgresql"]["host"] = ENV['POSTGRES_HOST']
 config["db_settings"]["postgresql"]["port"] = ENV['POSTGRES_PORT']
-config["db_settings"]["postgresql"]["dbname"] = ENV['POSTGRES_DB_NAME']
+config["db_settings"]["postgresql"]["dbname"] = ENV['POSTGRES_DB']
 
 # Write configuration file
 config = srsly.write_json("prodigy.json", config)
