@@ -5,13 +5,11 @@ from prodigy import set_hashes
 from prodigy.components.stream import get_stream
 
 CWD = Path(__file__).parent
-HTML_TEMPLATE = """<button onClick="copyText()">Copy Text</button>
-<p id="text">{{text}}</p>
+HTML_TEMPLATE = """<button onClick="copyAllItems()">Copy data</button>
+<p id="text" style="margin-top: 10px;">{{text}}</p>
 <br />
-<button onClick="copyAnnotation()">Copy Annotation</button>
 <p id="annotation">{{annotated_texts_and_labels}}</p>
 <br />
-<button onClick="copyJSON()">Copy JSON</button>
 <pre id="json" style="margin-top: 10px;">{{orig_json}}</pre>"""
 
 
